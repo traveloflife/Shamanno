@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samanno — Everyday, thoughtfully chosen</title>
+<meta name="description" content="Discover thoughtfully selected everyday essentials at Samanno.">
+<style>
+:root{--ink:#171717;--paper:#F7F5EF;--muted:#77756f;--line:#dedbd2;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+button,input,select,textarea{font:inherit}button,a{cursor:pointer}a{color:inherit;text-decoration:none}
+.announcement{background:var(--ink);color:var(--paper);text-align:center;padding:10px;font-size:11px;letter-spacing:1.5px}
+header{position:sticky;top:0;z-index:20;background:rgba(247,245,239,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:18px 22px}
+.logo{font-size:26px;font-weight:700;letter-spacing:3px}.navlinks{display:flex;gap:28px;font-size:12px;text-transform:uppercase;letter-spacing:1px}.navlinks a:hover{opacity:.55}
+.navright{display:flex;align-items:center;gap:14px}.cartbtn{border:1px solid var(--ink);background:transparent;padding:9px 13px;font-size:12px}
+.menu{display:none;border:0;background:none;font-size:22px}
+.hero{max-width:1200px;margin:auto;padding:38px 22px 55px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.hero-copy .eyebrow,.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-3px;margin:20px 0}.hero p{max-width:420px;color:#65635e;line-height:1.8;font-size:14px}
+.primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:14px 22px;font-size:12px;letter-spacing:1px;text-transform:uppercase;display:inline-block;margin-top:15px}.primary:hover{background:#383838}
+.hero-art{min-height:420px;background:#e7e2d7;position:relative;overflow:hidden;display:grid;place-items:center}
+.hero-art:before{content:"";position:absolute;width:70%;height:90%;border-radius:48% 48% 10% 10%;background:linear-gradient(135deg,#c9c1b3,#f1eee6);transform:rotate(-8deg)}
+.hero-art:after{content:"S";position:absolute;font-family:Georgia,serif;font-size:clamp(150px,24vw,300px);font-weight:bold;color:rgba(23,23,23,.08)}
+.art-label{position:absolute;bottom:20px;left:20px;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+section{max-width:1200px;margin:auto;padding:54px 22px}.sectionhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:25px}.sectionhead h2{font-size:30px;letter-spacing:-1px;margin:8px 0}.sectionhead p{font-size:12px;color:var(--muted)}
+filters{display:block}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}.filter{border:1px solid var(--line);background:transparent;padding:9px 14px;font-size:11px;text-transform:uppercase;letter-spacing:1px}.filter.active,.filter:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{min-width:0}.product-image{height:270px;background:#e9e5dc;display:grid;place-items:center;position:relative;overflow:hidden}
+.product-image .shape{width:58%;height:72%;background:linear-gradient(145deg,#d0c7b8,#f6f2e9);border-radius:8px 8px 22px 22px;box-shadow:12px 15px 25px #00000010;display:grid;place-items:center;font-family:Georgia,serif;font-size:38px;color:#17171755}
+.product:nth-child(2n) .product-image{background:#e2e5df}.product:nth-child(2n) .shape{background:linear-gradient(145deg,#aeb8aa,#e9eee6);border-radius:50% 50% 12px 12px}
+.product:nth-child(3n) .product-image{background:#e8ded9}.product:nth-child(3n) .shape{background:linear-gradient(145deg,#c5a99d,#f1e2dc);border-radius:4px}
+.product-image .tag{position:absolute;top:12px;left:12px;background:var(--paper);padding:6px 8px;font-size:9px;letter-spacing:1px}
+.product-info{padding:13px 2px}.product-info h3{font-size:14px;font-weight:500;margin:0 0 8px}.product-info p{font-size:12px;color:var(--muted);margin:0 0 10px}.price{font-size:13px;font-weight:bold}
+.add{float:right;border:1px solid var(--ink);background:transparent;padding:6px 10px;font-size:10px;text-transform:uppercase}.add:hover{background:var(--ink);color:var(--paper)}
+.about{background:#e9e5dc;max-width:none;padding:60px max(22px,calc((100% - 1156px)/2));display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.about h2{font-size:38px;letter-spacing:-1.5px;margin:10px 0}.about p{color:#65635e;font-size:14px;line-height:1.9}.about-mark{height:260px;border:1px solid #c9c3b7;display:grid;place-items:center;font-size:110px;font-family:Georgia,serif;color:#17171755}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}.contact p{color:var(--muted);line-height:1.8;font-size:14px}.contact form{display:grid;gap:12px}.contact input,.contact textarea{width:100%;padding:13px;border:1px solid var(--line);background:transparent}.contact textarea{min-height:110px;resize:vertical}
+footer{background:var(--ink);color:var(--paper);padding:28px 22px;text-align:center;font-size:11px;letter-spacing:1px}footer p{color:#b9b7b0}
+.overlay{display:none;position:fixed;inset:0;background:#0008;z-index:40;justify-content:flex-end}.overlay.open{display:flex}.drawer{background:var(--paper);width:min(440px,100%);height:100%;padding:25px;overflow:auto}.drawerhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.close{border:0;background:none;font-size:24px}.cartitem{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}.cartthumb{width:65px;height:70px;background:#e4dfd5;display:grid;place-items:center;font-family:Georgia,serif;font-size:24px}.cartitem h4{margin:3px 0 7px;font-size:13px}.cartitem p{margin:0;color:var(--muted);font-size:12px}.remove{border:0;background:none;text-decoration:underline;font-size:11px;margin-top:8px}.total{display:flex;justify-content:space-between;padding:20px 0;font-weight:bold}.checkoutform{display:grid;gap:10px;margin-top:18px}.checkoutform input,.checkoutform textarea,.checkoutform select{padding:12px;border:1px solid var(--line);background:transparent;width:100%}.checkoutform label{font-size:11px;color:var(--muted)}
+.notice{font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:25px}.hero-art{min-height:300px}.products{grid-template-columns:repeat(2,1fr)}.product-image{height:230px}.about,.contact{grid-template-columns:1fr}.navlinks{gap:14px}.about-mark{height:180px}}
+@media(max-width:520px){.nav{padding:14px}.logo{font-size:21px}.menu{display:block}.navlinks{display:none;position:absolute;top:60px;left:0;right:0;background:var(--paper);padding:20px;flex-direction:column;border-bottom:1px solid var(--line)}.navlinks.show{display:flex}.navright{gap:8px}.hero h1{letter-spacing:-2px}.sectionhead{align-items:start;flex-direction:column}.products{gap:12px}.product-image{height:190px}.product-info h3{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="announcement">THOUGHTFULLY CHOSEN · MADE FOR EVERYDAY</div>
+<header><nav class="nav">
+<a class="logo" href="#home">SAMANNO</a>
+<div class="navlinks" id="navlinks"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+<div class="navright"><button class="cartbtn" onclick="openCart()">Cart (<span id="cartcount">0</span>)</button><button class="menu" onclick="document.getElementById('navlinks').classList.toggle('show')" aria-label="Menu">☰</button></div>
+</nav></header>
+<main>
+<div class="hero" id="home"><div class="hero-copy"><div class="eyebrow">The Samanno Edit</div><h1>Everyday,<br>thoughtfully<br>chosen.</h1><p>Discover simple essentials with a considered touch. A little less ordinary, a little more you.</p><a class="primary" href="#shop">Explore the collection</a></div><div class="hero-art"><div class="art-label">SAMANNO · ESSENTIALS</div></div></div>
+<section id="shop"><div class="sectionhead"><div><div class="eyebrow">Curated for you</div><h2>Shop the collection</h2></div><p>Simple things. Better choices.</p></div>
+<div class="filters"><button class="filter active" onclick="filterProducts('All',this)">All</button><button class="filter" onclick="filterProducts('Accessories',this)">Accessories</button><button class="filter" onclick="filterProducts('Lifestyle',this)">Lifestyle</button><button class="filter" onclick="filterProducts('Apparel',this)">Apparel</button></div>
+<div class="products" id="products"></div></section>
+<section class="about" id="about"><div><div class="eyebrow">Our philosophy</div><h2>Less, but<br>meaningful.</h2><p>Samanno is built around the beauty of everyday essentials. We believe good design can be simple, thoughtful and accessible. This is our beginning—and we’re glad you’re here.</p></div><div class="about-mark">S</div></section>
+<section id="contact"><div class="sectionhead"><div><div class="eyebrow">We’d love to hear from you</div><h2>Get in touch</h2></div></div><div class="contact"><div><p>Questions about a product or an order? Send us a message. We’ll be happy to help.</p><p><strong>Email:</strong> hello@samanno.example<br><strong>Location:</strong> Bangladesh</p></div><form onsubmit="contactDemo(event)"><input required placeholder="Your name"><input type="email" required placeholder="Email address"><textarea required placeholder="Your message"></textarea><button class="primary" type="submit">Send message</button></form></div></section>
+</main>
+<footer><div class="logo">SAMANNO</div><p>Everyday, thoughtfully chosen.</p><p>© <span id="year"></span> Samanno. All rights reserved.</p></footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><aside class="drawer"><div class="drawerhead"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartitems"></div><div class="total"><span>Total</span><span id="total">৳0</span></div><form class="checkoutform" onsubmit="placeOrder(event)"><div class="eyebrow">Checkout · Demo</div><label>Full name</label><input required id="customer" placeholder="Your name"><label>Phone number</label><input required type="tel" id="phone" placeholder="01XXXXXXXXX"><label>Delivery address</label><textarea required id="address" placeholder="Your full address"></textarea><label>Payment method</label><select id="payment"><option>Cash on Delivery</option><option>Mobile payment (demo only)</option></select><button class="primary" type="submit">Place demo order</button><p class="notice">Demo storefront: orders are not sent or saved to a real shop. Payment is not processed. Connect a backend before taking real orders.</p></form></aside></div>
+<script>
+const products=[
+{id:1,name:"Everyday Tote",category:"Accessories",price:650,desc:"A simple carry-all for daily essentials.",symbol:"S",color:"Warm White",sizes:["One Size"]},
+{id:2,name:"Travel Bottle",category:"Lifestyle",price:850,desc:"A clean, minimal companion on the go.",symbol:"◯",color:"Sage",sizes:["500 ml"]},
+{id:3,name:"Classic T-Shirt",category:"Apparel",price:990,desc:"Comfort-first style for everyday wear.",symbol:"T",color:"Black",sizes:["S","M","L","XL"]},
+{id:4,name:"Compact Pouch",category:"Accessories",price:450,desc:"Keep your little essentials together.",symbol:"▱",color:"Sand",sizes:["One Size"]}
+];
+let cart=[];
+function renderProducts(list=products){document.getElementById("products").innerHTML=list.map(p=>`<article class="product"><div class="product-image"><span class="tag">${p.category}</span><div class="shape">${p.symbol}</div></div><div class="product-info"><h3>${p.name}</h3><p>${p.desc}</p><span class="price">৳${p.price.toLocaleString("en-US")}</span><button class="add" onclick="addToCart(${p.id})">Add +</button></div></article>`).join("")}
+function filterProducts(category,btn){document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderProducts(category==="All"?products:products.filter(p=>p.category===category))}
+function addToCart(id){const p=products.find(x=>x.id===id);const existing=cart.find(x=>x.id===id);if(existing)existing.qty++;else cart.push({...p,qty:1});updateCart();alert(p.name+" added to cart.")}
+function updateCart(){document.getElementById("cartcount").textContent=cart.reduce((n,p)=>n+p.qty,0);document.getElementById("cartitems").innerHTML=cart.length?cart.map(p=>`<div class="cartitem"><div class="cartthumb">${p.symbol}</div><div><h4>${p.name}</h4><p>৳${p.price.toLocaleString("en-US")} × ${p.qty}</p><button class="remove" onclick="removeItem(${p.id})">Remove</button></div></div>`).join(""):"<p>Your cart is empty. Explore the collection to add an item.</p>";document.getElementById("total").textContent="৳"+cart.reduce((n,p)=>n+p.price*p.qty,0).toLocaleString("en-US")}
+function removeItem(id){cart=cart.filter(p=>p.id!==id);updateCart()}
+function openCart(){document.getElementById("overlay").classList.add("open");document.body.style.overflow="hidden"}
+function closeCart(){document.getElementById("overlay").classList.remove("open");document.body.style.overflow=""}
+function placeOrder(e){e.preventDefault();if(!cart.length){alert("Your cart is empty.");return}alert("Thank you, "+document.getElementById("customer").value+"! This is a demo only—your order was not sent to a real store.");cart=[];updateCart();closeCart();e.target.reset()}
+function contactDemo(e){e.preventDefault();alert("Thanks for your message! This demo form does not send messages yet.");e.target.reset()}
+document.getElementById("year").textContent=new Date().getFullYear();renderProducts();updateCart();
+</script>
+</body>
+</html>
